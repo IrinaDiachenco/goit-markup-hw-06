@@ -198,6 +198,10 @@ h1 {
     margin-right: 0px;
 }
 
+.main {
+    padding-top: 94px;
+}
+
 .overlay {
     max-width: 1600px;
     height: 480px;
@@ -248,6 +252,8 @@ h1 {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2);
     z-index: 2;
+    opacity: 1;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
@@ -255,16 +261,78 @@ h1 {
     pointer-events: none;
 }
 
+.backdrop.is-hidden .popup {
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
 .popup {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1);
     min-width: 528px;
     min-height: 581px;
     background: #FFFFFF;
     box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12);
     border-radius: 4px;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+}
+
+.form {
+    width: 528px;
+    outline: 1px solid #188CE8;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    padding: 40px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 28px;
+}
+
+.form-field input {
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 12px 42px;
+}
+
+.comment {
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 12px 16px;
+}
+
+.text-form {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1.15;
+    text-align: center;
+}
+
+.text-form-secondary {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.71;
+    color: #757575;
+    text-align: center;
+}
+
+.text-form-secondary input[type='checkbox'] {
+    width: 15px;
+    height: 15px;
+}
+
+.text-link {
+    color: #188CE8;
 }
 
 .popup-button {
@@ -500,6 +568,9 @@ h1 {
     font-size: 18px;
     line-height: 2;
     color: var(--title-text-color);
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 20px;
 }
 
 .text-project {
@@ -508,7 +579,10 @@ h1 {
     font-weight: normal;
     font-size: 16px;
     line-height: 1.88;
-    color: var(--secondary-text-color)
+    color: var(--secondary-text-color);
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 20px;
 }
 
 .project-item-nav {
@@ -550,6 +624,11 @@ h1 {
     overflow: hidden;
 }
 
+.image {
+    
+    height: 294px;
+}
+
 .hover-text {
     font-family: Roboto, sans-serif;
     font-style: normal;
@@ -572,6 +651,13 @@ h1 {
     overflow: hidden;
     padding-left: 24px;
     width: 100%;
+    border: 1px solid #EEEEEE;
+    top: 0;
+}
+
+.project-item-nav:hover .name-text-project,
+.project-item-nav:focus .name-text-project {
+    border-bottom: none;
 }
 
 .customers-section {
@@ -711,7 +797,7 @@ h1 {
     margin-left: 0px;
     padding-left: 0px;
     background: #FFFFFF;
-    border: 1px solid #EEEEEE;
+    
     box-sizing: border-box;
 }
 

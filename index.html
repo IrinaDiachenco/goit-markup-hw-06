@@ -36,21 +36,58 @@
         </nav>
       </div>
     </header>
-    <main>
+    <main class="main">
         <!-- Hero -->
         <div class="overlay">
          <section class="hero-section">
           <div class="container">
             <div class="hero">
             <h1 class="hero-tittle">ЭФФЕКТИВНЫЕ РЕШЕНИЯ <br /> ДЛЯ ВАШЕГО БИЗНЕСА</h1>
-            <button type="button" class="button-hero">Заказать услугу</button>
+            <button data-open-modal type="button" class="button-hero">Заказать услугу</button>
             </div>
           </div>  
          </section>
       </div>   
-      <div class="backdrop is-hidden">
+      <div class="backdrop is-hidden" data-backdrop>
          <div class="popup">
-            <button class="popup-button">Отправить</button>
+            
+            <form class="form js-speaker-form">
+               <p class="text-form">Оставьте свои данные, мы вам перезвоним</p>
+               <div class="form-field">
+                 <label for="name">Имя</label>
+                 <input
+                   type="text"
+                   name="name"
+                   id="name"
+                   placeholder="Иван Иваныч"
+                   autofocus
+                 />
+               </div>
+         
+               <div class="form-field">
+                 <label for="tel">Телефон</label>
+                 <input type="tel" name="tel" id="tel" placeholder="+30**-000-00-00" />
+               </div>
+         
+               <div class="form-field">
+                 <label for="mail">Почта</label>
+                 <input type="email" name="mail" id="mail" placeholder="my@mail.com" />
+               </div>
+               <div class="form-field">
+                  <label for="comment">Коментарий</label>
+                  <textarea
+                    class="comment"
+                    name="comment"
+                    id="comment"
+                    rows="8"
+                    placeholder="Коментарий"
+                  ></textarea>
+                </div>
+                <div class="text-form-secondary">
+               <input type="checkbox" name="text" id="text">
+                <label for="" class="text-form-secondary">Соглашаюсь с рассылкой и принимаю<a href="" class="text-link"> Условия договора</a></label>
+               </div>
+               <button data-close-modal class="popup-button">Отправить</button>
          </div>
       </div>
         <!-- Functions -->
@@ -370,5 +407,40 @@
          </div> 
       </div>
     </footer>
+    <script>
+      const refs = {
+        openModalBtn: document.querySelector("[data-open-modal]"),
+        closeModalBtn: document.querySelector("[data-close-modal]"),
+        backdrop: document.querySelector("[data-backdrop]"),
+      };
+
+      refs.openModalBtn.addEventListener("click", toggleModal);
+      refs.closeModalBtn.addEventListener("click", toggleModal);
+
+      refs.backdrop.addEventListener("click", logBackdropClick);
+
+      function toggleModal() {
+        refs.backdrop.classList.toggle("is-hidden");
+      }
+
+      function logBackdropClick() {
+        console.log("Это клик в бекдроп");
+      }
+    </script>
+    <script>
+      (() => {
+        document
+          .querySelector('.js-speaker-form')
+          .addEventListener('submit', e => {
+            e.preventDefault();
+
+            new FormData(e.currentTarget).forEach((value, name) =>
+              console.log(`${name}: ${value}`),
+            );
+
+            e.currentTarget.reset();
+          });
+      })();
+    </script>
   </body>
 </html>
