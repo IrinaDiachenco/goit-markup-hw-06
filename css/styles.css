@@ -288,9 +288,9 @@ h1 {
 }
 
 .form-field {
-    display: flex;
-    flex-direction: column;
+
     margin-bottom: 28px;
+    position: relative;
 }
 
 .form-field input {
@@ -298,6 +298,37 @@ h1 {
     box-sizing: border-box;
     border-radius: 4px;
     padding: 12px 42px;
+    width: 100%;
+}
+
+.form-label {
+    position: absolute;
+    top: 50%;
+    left: 42px;
+    transform: translateY(-50%);
+    transition: transform 250ms linear;
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+   color: #188CE8;
+   transform: translateY(-50px) translateX(-70%);
+   
+}
+
+.icon-form {
+   position: absolute;
+   top: 50%;
+   left: 19px;
+   transform: translateY(-50%);
+   display: inline-block;
+   width: 20px;
+   height: 20px;
+   background-color: #212121;
+}
+
+.form-input:focus ~ .icon-form {
+    background-color: #188CE8;
 }
 
 .comment {
@@ -314,6 +345,8 @@ h1 {
     font-size: 20px;
     line-height: 1.15;
     text-align: center;
+    margin: 0;
+    padding-bottom: 30px;
 }
 
 .text-form-secondary {
