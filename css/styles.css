@@ -404,20 +404,17 @@ h1 {
 }
 
 .checkbox {
-    appearance: none;
+   
     position: absolute;
     display: inline-block;
 }
 
 .checkbox-icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-color: var(--accent-color);
+    
 }
 
 .checkbox:checked + .checkbox-icon {
-    background-color: #000000;
+    
 }
 
 .popup-button {
