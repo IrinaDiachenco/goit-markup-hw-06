@@ -11,7 +11,7 @@
     --client-color: #AFB1B8;
 }
 
-a {
+a:not(.text-link) {
     text-decoration: none;
 }
 
@@ -285,6 +285,7 @@ h1 {
     box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12);
     border-radius: 4px;
     padding: 40px;
+    position: relative;
 }
 
 .form-field {
@@ -299,6 +300,12 @@ h1 {
     border-radius: 4px;
     padding: 12px 42px;
     width: 100%;
+} 
+
+.form-input:focus input{
+    border-color: #2196F3;
+   
+    border-radius: 4px;
 }
 
 .form-label {
@@ -322,13 +329,33 @@ h1 {
    left: 19px;
    transform: translateY(-50%);
    display: inline-block;
-   width: 20px;
-   height: 20px;
-   background-color: #212121;
+
+   fill: #212121;
 }
 
 .form-input:focus ~ .icon-form {
-    background-color: #188CE8;
+    fill: #188CE8;
+}
+
+.button-close {
+    width: 11px;
+    height: 11px;
+    fill: #000000;
+}
+
+.button-close:hover {
+    fill: #2196F3;
+}
+
+.close-bg {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    
+    background-color: var(--header-bg-color);
+    position: absolute;
+    top: 8px;
+    right: 8px;
 }
 
 .comment {
@@ -336,6 +363,18 @@ h1 {
     box-sizing: border-box;
     border-radius: 4px;
     padding: 12px 16px;
+    width: 100%;
+}
+
+.comment .form-label {
+    position: absolute;
+    top: 0;
+}
+
+.comment:focus + .form-label,
+.comment:not(:placeholder-shown) + .form-label {
+   color: #188CE8;
+   transform: translateY(-50px) translateX(-70%);
 }
 
 .text-form {
@@ -350,6 +389,7 @@ h1 {
 }
 
 .text-form-secondary {
+    display: block;
     font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -359,13 +399,25 @@ h1 {
     text-align: center;
 }
 
-.text-form-secondary input[type='checkbox'] {
-    width: 15px;
-    height: 15px;
-}
-
 .text-link {
     color: #188CE8;
+}
+
+.checkbox {
+    appearance: none;
+    position: absolute;
+    display: inline-block;
+}
+
+.checkbox-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: var(--accent-color);
+}
+
+.checkbox:checked + .checkbox-icon {
+    background-color: #000000;
 }
 
 .popup-button {
@@ -380,6 +432,10 @@ h1 {
     border: 0px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
+    margin-top: 30px;
+    
+    margin-left: 109px;
+    margin-right: 108px;
 }
 
 .text {
@@ -937,6 +993,23 @@ footer .logo {
     transition-property: color;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-form-box {
+    display: flex;
+    
+}
+
+.footer-form-box input {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    width: 358px;
+    height: 50px;
+    padding: 15px 16px;
+    background-color: var(--footer-bg-color);
+    margin-right: 12px;
 }
 
 .footer-button {
