@@ -335,6 +335,12 @@ h1 {
 .comment:not(:placeholder-shown) + .textarea-label {
    color: #188CE8;
    transform: translateY(-50px) translateX(-40%);
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
 
 }
 
@@ -358,6 +364,7 @@ h1 {
     fill: #000000;
 }
 
+.button-close:focus,
 .button-close:hover {
     fill: #2196F3;
 }
@@ -366,11 +373,16 @@ h1 {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    
+    outline: none;
     background-color: var(--header-bg-color);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     position: absolute;
     top: 8px;
     right: 8px;
+}
+
+.close-bg:hover .button-close {
+    fill: #2196F3;
 }
 
 .comment {
