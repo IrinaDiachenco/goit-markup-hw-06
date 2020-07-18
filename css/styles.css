@@ -438,21 +438,18 @@ h1 {
     clip: rect(0 0 0 0);
 }
 
-.box-checkbox .checkbox-icon {
+.checkbox .checkbox-icon {
     display: inline-block;
     content: '';
     width: 16px;
     height: 16px;
     border: 2px solid #000000;
-    border-radius: 2px;
-    background-color: #FFFFFF;
+    background-color: var(--header-bg-color);
 }
 
 .checkbox:checked + .checkbox-icon {
     display: inline-block;
-    border-color: var(--accent-color);
-    background-color: var(--accent-color);
-    background-image: url("./images/sprite.svg#icon-checkbox");  
+    background-image: url("../images/sprite.svg#icon-icon-check");
 }
 
 .popup-button {
