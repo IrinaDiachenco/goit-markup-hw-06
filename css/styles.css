@@ -441,16 +441,20 @@ h1 {
 .checkbox-label .checkbox-icon {
     display: inline-block;
     content: '';
+    position: absolute;
     width: 16px;
-    height: 15px;
+    height: 16px;
     border: 2px solid #000000;
     border-radius: 4px;
-    margin-right: 8px;
+
 }
 
 .checkbox:checked + .checkbox-icon {
     display: inline-block;
-    background-image: url(../images/symbol-defs.svg);
+    position: absolute;
+    background-image: url(../images/icon-check.svg);
+    border: 2px solid var(--accent-color);
+    justify-content: center;
 }
 
 .popup-button {
