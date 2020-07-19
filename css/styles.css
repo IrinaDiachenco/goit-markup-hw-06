@@ -300,11 +300,12 @@ h1 {
     border-radius: 4px;
     padding: 12px 42px;
     width: 100%;
+    cursor: pointer;
 } 
 
 .form-input:focus input{
     border-color: #2196F3;
-   
+    
     border-radius: 4px;
 }
 
@@ -335,6 +336,10 @@ h1 {
 .comment:not(:placeholder-shown) + .textarea-label {
    color: #188CE8;
    transform: translateY(-50px) translateX(-40%);
+}
+
+.comment {
+    cursor: pointer;
 }
 
 .form-field input:focus,
