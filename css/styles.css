@@ -446,13 +446,13 @@ h1 {
     height: 16px;
     border: 2px solid #000000;
     border-radius: 4px;
-
 }
 
 .checkbox:checked + .checkbox-icon {
     display: inline-block;
     position: absolute;
-    background-image: url(../images/icon-check.svg);
+    background-color: var(--accent-color);
+    background-image: url(../images/icon-check1.svg);
     border: 2px solid var(--accent-color);
     justify-content: center;
 }
